@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jt.mapper.UserMapper">
+	
+	<!--resultType="包名.类名"  
+		需求:包路径能否简化  包路径进行抽取,在配置文件中只写类名.
+		可以通过别名包的形式动态拼接.
+		
+		如果添加了别名包,则再写全路径是否报错呀?  没关系 程序会自动的检测
+	-->
+	<select id="findAll" resultType="User">
+		select * from user
+	</select>
+	
+	
+	<!--Mybatis入库  -->
+	<insert id="insertUser">
+		insert into user ( name, age, sex ) values (#{name},#{age},#{sex}) 
+	</insert>
+	
+	
+	
+	
+	
+</mapper>

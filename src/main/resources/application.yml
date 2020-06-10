@@ -1,0 +1,38 @@
+server:
+  port: 8090    #表示端口号信息
+  servlet:
+    context-path: /   #项目发布路径
+spring:
+  datasource:
+        #如果使用高版本驱动则配置如下
+    #driver-class-name: com.cj.mysql.jdbc.Driver
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/jtdb?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true
+    username: root
+    password: root
+    
+    #引入mvn配置
+  mvc:         
+    view:
+      prefix: /WEB-INF/     # /默认代表根目录 src/main/webapp
+      suffix: .jsp
+
+#mybatis-plush配置  mp比mybatis功能更加强大 引用一个即可
+mybatis-plus:
+    #定义别名包
+  type-aliases-package: com.jt.pojo  
+  mapper-locations: classpath:/mybatis/mappers/*.xml  #动态的导入xml映射文件
+    #开启驼峰映射
+  configuration:
+    map-underscore-to-camel-case: true   #为了user_id与userId完美映射.无需手动转化
+
+
+#打印sql日志
+logging:  level:    com.jt.mapper: debug
+
+
+
+
+
+
+  
